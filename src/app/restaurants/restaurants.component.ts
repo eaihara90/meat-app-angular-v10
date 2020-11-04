@@ -11,7 +11,6 @@ import { RestaurantsService } from './restaurants.service';
 })
 export class RestaurantsComponent implements OnInit, OnDestroy
 {
-
     public restaurants: Restaurant[] = [];
     private subscription = new Subscription();
 
@@ -21,15 +20,7 @@ export class RestaurantsComponent implements OnInit, OnDestroy
     {
         this.subscription.add(this._restaurantService.restaurants().subscribe((restaurants: Restaurant[]) =>
         {
-
             this.restaurants = restaurants;
-
-        },
-        error =>
-        {
-
-            throw new Error(error);
-
         }));
 
         this._title.setTitle('Meat | Restaurants');
