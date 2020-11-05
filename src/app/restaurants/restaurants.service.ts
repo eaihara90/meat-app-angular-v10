@@ -6,6 +6,7 @@ import { ErrorHandler } from '../app.error-handler';
 import { MEAT_API } from '../app.api';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { MenuItem } from '../restaurant-detail/menu-item/menu-item.model';
 
 
 @Injectable({ providedIn: 'root' })
@@ -21,5 +22,15 @@ export class RestaurantsService
     public restaurantById(id: string): Observable<Restaurant>
     {
         return this.http.get<Restaurant>(`${MEAT_API}/restaurants/${id}`).pipe(catchError(err => ErrorHandler.handleError(err)));
+    }
+
+    public reviewsOfRestaurant(id: string): Observable<any>
+    {
+        return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`).pipe(catchError(err => ErrorHandler.handleError(err)));
+    }
+
+    public menuOfRestaurant(id: string): Observable<MenuItem[]>
+    {
+        return this.http.get<MenuItem[]>(`${MEAT_API}/restaurants/${id}/menu`).pipe(catchError(err => ErrorHandler.handleError(err)));
     }
 }
