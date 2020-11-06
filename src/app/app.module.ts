@@ -24,6 +24,7 @@ import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewComponent } from './restaurant-detail/review/review.component';
+import { OrderComponent } from './order/order.component';
 
 registerLocaleData(localePt);
 
@@ -39,7 +40,8 @@ registerLocaleData(localePt);
         MenuComponent,
         ShoppingCartComponent,
         MenuItemComponent,
-        ReviewComponent
+        ReviewComponent,
+        OrderComponent
     ],
     imports: [
         BrowserModule,
