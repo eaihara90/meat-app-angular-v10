@@ -33,9 +33,6 @@ export class ShoppingCartService
 
     public total(): number
     {
-        return this.items.map(item => item.value()).reduce((total, curr) =>
-        {
-            return total + curr;
-        }, 0);
+        return this.items.map(item => item.value()).reduce((total, curr) => total + curr, 0);
     }
 }
